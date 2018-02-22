@@ -1,5 +1,5 @@
-var onderwijsinstelling = artifacts.require("./Issuer.sol");
+var issuer = artifacts.require("./Issuer.sol");
 
 module.exports = function(deployer) {
-  deployer.deploy(onderwijsinstelling);
+  deployer.deploy(issuer);
 };
