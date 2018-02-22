@@ -1,0 +1,21 @@
+
+
+th, td {
+    padding: 15px;
+}
+
+.student {
+    display: block;
+    border: 1px solid;
+    height: 250px;
+}
+
+.badges {
+    display: inline-block;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.badges {
+    border: 1px solid black;
+}
