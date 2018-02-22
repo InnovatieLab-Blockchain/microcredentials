@@ -1,25 +1,16 @@
-web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-abi = JSON.parse()
-InstellingContract = web3.eth.contract(abi);
+web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
+abi = JSON.parse() // todo: add method to get contract abi
+IssuerContract = web3.eth.contract(abi);
 
-// In your nodejs console, execute contractInstance.address to get the address at which the contract is deployed and change the line below to use your deployed address
-contractInstance = InstellingContract.at('0x2a9c1d265d06d47e8f7b00ffa987c9185aecf672');
-candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"}
+accountOwnerAddress = 'Accountaddress';
 
-function voteForCandidate() {
-    candidateName = $("#candidate").val();
-    contractInstance.voteForCandidate(candidateName, {from: web3.eth.accounts[0]}, function() {
-        let div_id = candidates[candidateName];
-        $("#" + div_id).html(contractInstance.totalVotesFor.call(candidateName).toString());
-    });
+contractAddress = 'smartcontract address';
+contractInstance = IssuerContract.at('smartcontract address'); // todo: add method to get address from...
+
+studentAddress = 'student'; // todo: get student address from ...
+badgeHash = hash; // todo: get hash of badge
+contractInstance.assignBadge.getData(studentAddress, badgeHash);
+
+function assignBadge() {
+    web3.eth.send({to:contractAddress, from:accountOwnerAddress, data: getData})
 }
-
-$(document).ready(function() {
-    candidateNames = Object.keys(candidates);
-    for (var i = 0; i < candidateNames.length; i++) {
-        let name = candidateNames[i];
-        let val = contractInstance.totalVotesFor.call(name).toString()
-        $("#" + candidates[name]).html(val);
-    }
-});
-
