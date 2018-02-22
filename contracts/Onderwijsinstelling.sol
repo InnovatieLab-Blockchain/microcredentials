@@ -1,26 +1,26 @@
 pragma solidity ^0.4.18;
 
-contract Onderwijsinstelling {
+contract Issuer {
 
     event Logger(address, string);
-    address private instelling;
-    mapping (address  => string) private studentenBadges;
+    address private issuer;
+    mapping (address  => string) private studentBadges;
 
-    modifier isInstelling {
-        require(msg.sender == instelling );
+    modifier isIssuer {
+        require(msg.sender == issuer);
         _;
     }
 
-    function Onderwijsinstelling() public payable {
-        instelling = msg.sender;
-        Logger(instelling, "Deze eigenaar heeft het contract aangemaakt.");
+    function Issuer() public payable {
+        issuer = msg.sender;
+        Logger(issuer, "This owner made the contract.");
     }
 
-    function toekennenBadge(address student, string hash) public isInstelling {
-        studentenBadges[student] = hash;
+    function assignBadge(address student, string hash) public isIssuer {
+        studentBadges[student] = hash;
     }
 
-    function verifeerBadge(address student, string hash) public constant returns (bool) {
-        return keccak256(studentenBadges[student]) == keccak256(hash);
+    function verifyBadge(address student, string hash) public constant returns (bool) {
+        return keccak256(studentBadges[student]) == keccak256(hash);
     }
 }
