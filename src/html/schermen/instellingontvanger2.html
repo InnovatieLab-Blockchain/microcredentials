@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+    <meta charset="utf-8">
+    <title>Onderwijsinstelling - Blockchaingers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
+    <link rel="stylesheet" href="../uno/dist/core/uno.css">
+
+    <script src="../systemjs/dist/system.js"></script>
+    <script>
+        System.config({
+            "defaultJSExtensions": true
+        });
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="uno/core/compatibility/polyfill-ie8.js"></script>
+    <script src="uno/vendor/js/html5shiv.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="wrapper">
+    <a class="skiplink" href="#content">
+        <span class="skiplink__text">Ga direct naar inhoud</span>
+    </a>
+    <header class="headerRUG header--transparent" role="banner">
+        <div class="header2-logo">
+            <a href="/duo/onderwijsorganisaties/" title="Rijksuniversiteit Groningen"></a>
+        </div>
+    </header>
+
+    <main class="skiplink-target main" id="content" tabindex="-1">
+
+        <div class="container">
+            <header class="row">
+                <div class="col-xs-12">
+                    <div class="content content--header">
+                        <section class="content-header">
+                            <h1 style="color:#D10702;">Rijksuniversiteit Groningen</h1>
+                        </section>
+                    </div>
+                </div>
+            </header>
+
+            <div class="container">
+                <header class="row">
+                    <div class="col-xl-12">
+                        <div class="content">
+                            <section class="content-header">
+                                <h5>
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <div class="input">
+                                                    <a class="btn btn--primary" href="#" onclick="validateAssertion()">Valideren</a>
+                                                </div>
+                                            </td>
+                                            <td><span id="validatebadge" style="display: none">Mekker</span></td>
+                                        </tr>
+                                    </table>
+                                </h5>
+
+                            </section>
+                        </div>
+                    </div>
+                </header>
+
+                <article>
+                    <div class="row">
+                        <div class="col-xl-5">
+                            <div class="content">
+                                <ul class="definition-list">
+
+                                    <li class="definition-list__item">
+                                        <div class="definition-list__title">Student</div>
+                                        <div class="definition-list__description">
+                                            <select id="students2">
+                                              <option value="1">Selecteer een student</option>
+                                              <option value="2">Jan de Vries</option>
+                                              <option value="3">Marieke Veenstra</option>
+                                              <option value="4">Hassan Yilmaz</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li class="definition-list__item">
+                                        <div class="definition-list__title">Public key/adres</div>
+                                        <div class="definition-list__description break-all">
+                                            <select id="addresses2">
+                                                <option value="1">Selecteer een address</option>
+                                                <option value="2">0x30753e4a8aad7f8597332e813735def5dd395028</option>
+                                                <option value="3">0xfb88de099e13c3ed21f80a7a1e49f8caecf10df6</option>
+                                                <option value="4">0xaa588d3737b611bafd7bd713445b314bd453a5c8</option>
+                                              </select>
+                                        </div>
+                                    </li>
+                                    <li class="definition-list__item">
+                                       <div class="definition-list__title">Volgnummer</div>
+                                       <div class="definition-list__description break-all">
+                                           <select id="volgnummer">
+                                               <option value="1">1</option>
+                                               <option value="2">2</option>
+                                               <option value="3">3</option>
+                                            </select>
+                                       </div>
+                                   </li>
+                                    <li class="definition-list__item">
+                                        <div class="definition-list__title">Hash bestand</div>
+                                        <div class="definition-list__description break-all">
+                                            <select id="hashes2">
+                                                <option value="1">Selecteer een hash</option>
+                                                <option value="2">42</option>
+                                                <option value="3">57</option>
+                                                <option value="4">81</option>
+                                              </select>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-3">
+                            <div class="content-background">
+                                <div class="content">
+                                    <img src="_img/035-medal-35.png" class="responsive" alt="Studenten">
+                                    <p></p>
+                                    <h3>Atheneum</h3>
+
+                                    <p>Praedinius Gymnasium</p>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </article>
+            </div>
+    </main>
+
+
+</div>
+
+<script type="text/javascript">
+    /* Load tab component */
+    System.import('/duo/rio/uno/dist/components/tabs/tabs.js').then(function (module) {
+        /* Create tab component */
+        var tab = new module.Tabs(document.querySelector('.tab'));
+
+        /* Activate second tab */
+        tab.openTab(0);
+    });
+
+    // Load collapse component
+    System.import('/duo/rio/uno/dist/components/collapse/collapse.js').then(function (module) {
+        // Select all collapsible elements on the page
+        var collapses = document.querySelectorAll('[x-uno-collapse]');
+        // Initialize all collapses
+        for (var i = 0; i < collapses.length; i++) {
+            new module.Collapse(collapses.item(i));
+        }
+    });
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+<script src="../../js/web3.min.js"></script>
+<script src="https://unpkg.com/ipfs-api/dist/index.js"></script>
+<script src="../../js/scripts.js"></script>
+
+</body>
+</html>

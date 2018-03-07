@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl-NL">
+<head>
+  <meta charset="utf-8">
+  <title>Jan de Vries - Blockchaingers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
+  <link rel="stylesheet" href="../uno/dist/core/uno.css">
+
+  <script src="../systemjs/dist/system.js"></script>
+  <script>
+  System.config({
+    "defaultJSExtensions": true
+  });
+  </script>
+
+  <!--[if lt IE 9]>
+  <script src="uno/core/compatibility/polyfill-ie8.js"></script>
+  <script src="uno/vendor/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <a class="skiplink" href="#content">
+      <span class="skiplink__text">Ga direct naar inhoud</span>
+    </a>
+
+    <header class="header header--transparent" role="banner">
+      <div class="header-logo">
+        <a href="/duo/onderwijsorganisaties/" title="Logo Dienst Uitvoering Onderwijs"></a>
+      </div>
+    </header>
+
+    <main class="skiplink-target main" id="content" tabindex="-1">
+      <div class="container">
+        <header class="row">
+          <div class="col-xl-6 col-xl-offset-3">
+            <div class="content content--header">
+              <section class="content-header">
+                <h1>Jouw diploma's</h1>
+                <p class="subheading">Jij bepaalt met wie je ze deelt.</p>
+              </section>
+            </div>
+          </div>
+        </header>
+
+        <article>
+          <div class="row">
+            <div class="col-xl-6 col-xl-offset-3">
+              <div class="content-background">
+                <div class="content">
+                  <h3>Scan de code met uPort om je diploma's te zien</h3>
+                  <p></p>
+                  <img src="qr.png" class="responsive" alt="Studenten">
+                  <p></p>
+                  <p><a href="student.html" class="btn btn--primary">Doe alsof je bent ingelogd en ga verder naar je diploma's</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </main>
+
+
+
+  </div>
+
+  <script type="text/javascript">
+  /* Load tab component */
+  System.import('/duo/rio/uno/dist/components/tabs/tabs.js').then(function (module) {
+    /* Create tab component */
+    var tab = new module.Tabs(document.querySelector('.tab'));
+
+    /* Activate second tab */
+    tab.openTab(0);
+  });
+
+  // Load collapse component
+  System.import('/duo/rio/uno/dist/components/collapse/collapse.js').then(function (module) {
+    // Select all collapsible elements on the page
+    var collapses = document.querySelectorAll('[x-uno-collapse]');
+    // Initialize all collapses
+    for (var i = 0; i < collapses.length; i++) {
+      new module.Collapse(collapses.item(i));
+    }
+  });
+</script>
+
+</body>
+</html>
