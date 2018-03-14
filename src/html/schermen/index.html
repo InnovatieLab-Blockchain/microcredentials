@@ -7,8 +7,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
   <link rel="stylesheet" href="../uno/dist/core/uno.css">
-
   <script src="../systemjs/dist/system.js"></script>
+  <script type="text/javascript" src="../../../node_modules/web3/dist/web3.js"></script>
+  <script type="text/javascript" src="../../../node_modules/uport-connect/dist/uport-connect.js"></script>
   <script>
   System.config({
     "defaultJSExtensions": true
@@ -55,9 +56,12 @@
                 <div class="content">
                   <h3>Scan de code met uPort om je diploma's te zien</h3>
                   <p></p>
-                  <img src="qr.png" class="responsive" alt="Studenten">
-                  <p></p>
-                  <p><a href="student.html" class="btn btn--primary">Doe alsof je bent ingelogd en ga verder naar je diploma's</a></p>
+                  <p><div class="input">
+                  <a class="btn btn--primary" href="#" onclick="uportConnect()">Log in</a>
+                </div></p>
+                    <div><a class="btn btn--send" onclick="show_credentials()">Show Credentials</a></div>
+
+                  <!--<p><a href="student.html" class="btn btn--primary">Doe alsof je bent ingelogd en ga verder naar je diploma's</a></p>-->
                 </div>
               </div>
             </div>
@@ -66,9 +70,6 @@
 
       </div>
     </main>
-
-
-
   </div>
 
   <script type="text/javascript">
@@ -91,6 +92,6 @@
     }
   });
 </script>
-
+<script src="../../js/uport.js"></script>
 </body>
 </html>

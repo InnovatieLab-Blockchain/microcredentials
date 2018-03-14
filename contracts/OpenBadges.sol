@@ -30,6 +30,4 @@ contract OpenBadges {
         return assertion.getBadgeHash() == hash;
     }
 
-
-
 }

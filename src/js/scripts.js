@@ -9,13 +9,13 @@ web3 = new Web3(web3Provider);
 
 function assertBadge() {
     var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
+    var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
     var contract = web3.eth.contract(abi).at(contractAddress);
     var studentAddresses = document.getElementById("addresses");
 
-    var issuer = "0x9fbda871d559710256a2502a2517b794b482db40";
+    var issuer = "0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f";
     var recipient = studentAddresses.options[studentAddresses.selectedIndex].text;
-    var badgeClass = "0xfb88de099e13c3ed21f80a7a1e49f8caecf10df6";
+    var badgeClass = "0x9fbda871d559710256a2502a2517b794b482db40";
     var hashes = document.getElementById("hashes");
     var badgeHash = hashes.options[hashes.selectedIndex].text;
     var url = "MijnBadge.png";
@@ -26,7 +26,7 @@ function assertBadge() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                storeBadge(url);
+                // storeBadge(url);
 
                 document.getElementById("hashresult").textContent = "Het diploma is succesvol toegekend aan de student en opgeslagen op de blockchain.";
                 document.getElementById("hashresult").style = "display:block; color:#008000;";
@@ -35,12 +35,12 @@ function assertBadge() {
                 document.getElementById("hashresult").textContent = "Het toekennen van het diploma is mislukt.";
                 document.getElementById("hashresult").style = "display:block; color:#800000;";
             }
-    });    
+    });
 }
 
 function validateAssertion() {
     var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
+    var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
     var contract = web3.eth.contract(abi).at(contractAddress);
     var studentAddresses = document.getElementById("addresses2");
 
@@ -56,7 +56,7 @@ function validateAssertion() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                retrieveBadge("QmaYNppAYhBjN7gCSdbSemf7u4pLuJVEPFZSiXycfm3Pek");
+                // retrieveBadge("QmaYNppAYhBjN7gCSdbSemf7u4pLuJVEPFZSiXycfm3Pek");
 
                 if(result) {
                     document.getElementById("validatebadge").textContent = "Diploma is valide.";
@@ -86,7 +86,6 @@ function storeBadge(location) {
              console.error(error);
          }
      });
-    
 }
 
 function retrieveBadge(location) {
