@@ -15,4 +15,31 @@
     <li>Installation of lite-server (HTTP server).</li>
     <li>Installation of Metamask (browser plugin).</li>
 </ul>
+<p></p>
+<h2>Installation of Node.js</h2>
+Hello world
+<p></p>
 
+<h2>Installation of npm</h2>
+Hello world
+<p></p>
+
+<h2>Installation of Ganache</h2>
+Hello world
+<p></p>
+
+<h2>Installation of the Truffle framework</h2>
+Hello world
+<p></p>
+
+<h2>Installation of IPFS</h2>
+Hello world
+<p></p>
+
+<h2>Installation of lite-server (HTTP server)</h2>
+Hello world
+<p></p>
+
+<h2>Installation of Metamask (browser plugin)</h2>
+Hello world
+<p></p>
