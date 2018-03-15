@@ -18,6 +18,9 @@
 <p></p>
 <h2>Installation of Node.js</h2>
 Hello world
+```sh
+haha
+```
 <p></p>
 
 <h2>Installation of npm</h2>
@@ -29,7 +32,7 @@ Ganache is a personal Ethereum blockchain application, which can be used for dev
 framework website.<br/> <p></p>
 <a href="http://truffleframework.com/ganache/" target="_blank">http://truffleframework.com/ganache/</a><br/><p></p>
 Ganache for Linux can be found <a href="https://github.com/trufflesuite/ganache/releases/download/v1.0.2/ganache-1.0.2-x86_64.AppImage">here</a>.<br> 
-For other operating systems please visit <a href="https://github.com/trufflesuite/ganache/releases" target="_blank">this link</a>
+For other operating systems please visit <a href="https://github.com/trufflesuite/ganache/releases" target="_blank">this link</a>.
 <p></p>
 
 <h2>Installation of the Truffle framework</h2>
