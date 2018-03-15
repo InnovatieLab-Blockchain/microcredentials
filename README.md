@@ -6,12 +6,13 @@
 </p>
 
 <h3>This manual describes the setup for the microcredentials project.</h3>
-* Installation of Node.js.
-* Installation of npm.
-* Installation of Ganache.
-* Installation of the Truffle framework.
-* Installation of IPFS.
-* Installation of lite-server (HTTP server)
-* Installation of Metamask (browser plugin)
-
+<ul>
+    <li>Installation of Node.js.</li>
+    <li>Installation of npm.</li>
+    <li>Installation of Ganache.</li>
+    <li>Installation of the Truffle framework.</li>
+    <li>Installation of IPFS.</li>
+    <li>Installation of lite-server (HTTP server).</li>
+    <li>Installation of Metamask (browser plugin).</li>
+</ul>
 
