@@ -1,6 +1,6 @@
 {
   "server": {
-    "baseDir": ["./src", "./build/contracts"]
+    "baseDir": [".", "./build/contracts"]
   },
   "notify": false
 }

@@ -4,11 +4,11 @@
 
 # Innovatielab Blockchain - Microcredentials
 
-## This manual describes the setup for the microcredentials project.
+### This manual describes the setup for the microcredentials project.
 
 ### Prerequisites
 
-* Installation of Node.js.
+* [Installation of Node.js](#Deployment)
 * Installation of npm.
 * Installation of Ganache.
 * Installation of the Truffle framework.

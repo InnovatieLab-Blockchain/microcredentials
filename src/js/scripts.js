@@ -9,16 +9,15 @@ web3 = new Web3(web3Provider);
 
 function assertBadge() {
     var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
+    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
     var contract = web3.eth.contract(abi).at(contractAddress);
-    var studentAddresses = document.getElementById("addresses");
+    var studentAddresses = document.getElementById("students");
 
-    var issuer = "0x8f0483125fcb9aaaefa9209d8e9d7b9c8b9fb90f";
-    var recipient = studentAddresses.options[studentAddresses.selectedIndex].text;
-    var badgeClass = "0x9fbda871d559710256a2502a2517b794b482db40";
-    var hashes = document.getElementById("hashes");
-    var badgeHash = hashes.options[hashes.selectedIndex].text;
-    var url = "MijnBadge.png";
+    var issuer = "0x9fbda871d559710256a2502a2517b794b482db40";
+    var recipient = studentAddresses.options[studentAddresses.selectedIndex].value;
+    var badgeClass = "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4";
+    var badgeHash = 42;
+    var url = "atheneum.png";
 
     contract.assertBadge.sendTransaction(issuer, recipient, badgeClass, badgeHash, {
         from: web3.eth.accounts[0],
@@ -26,7 +25,7 @@ function assertBadge() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                // storeBadge(url);
+                storeBadge(url);
 
                 document.getElementById("hashresult").textContent = "Het diploma is succesvol toegekend aan de student en opgeslagen op de blockchain.";
                 document.getElementById("hashresult").style = "display:block; color:#008000;";
@@ -40,15 +39,13 @@ function assertBadge() {
 
 function validateAssertion() {
     var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0xf204a4ef082f5c04bb89f7d5e6568b796096735a";
+    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
     var contract = web3.eth.contract(abi).at(contractAddress);
-    var studentAddresses = document.getElementById("addresses2");
+    var studentAddresses = document.getElementById("students");
 
-    var recipient = studentAddresses.options[studentAddresses.selectedIndex].text;
-    var volgnummers = document.getElementById("volgnummer");
-    var number = volgnummers.options[volgnummers.selectedIndex].text;
-    var hashes = document.getElementById("hashes2");
-    var badgeHash = hashes.options[hashes.selectedIndex].text;
+    var recipient = studentAddresses.options[studentAddresses.selectedIndex].value;
+    var number = 1;
+    var badgeHash = 42;
 
     contract.validateAssertion.call(recipient, number, badgeHash, {
         from: web3.eth.accounts[0],
@@ -56,7 +53,7 @@ function validateAssertion() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                // retrieveBadge("QmaYNppAYhBjN7gCSdbSemf7u4pLuJVEPFZSiXycfm3Pek");
+                retrieveBadge("QmYmHV9cGVRkh78TBKgvCBkDdP9B5cdBybDs7evbfFHCvN");
 
                 if(result) {
                     document.getElementById("validatebadge").textContent = "Diploma is valide.";
@@ -73,15 +70,15 @@ function validateAssertion() {
     });
 }
 
-function storeBadge(location) {
+function storeBadge(url) {
     window.ipfs = window.IpfsApi('localhost', '5001', {protocol: 'http'});
 
     const Buffer = window.IpfsApi().Buffer;
-    var buffer = Buffer.from(location);
+    var buffer = Buffer.from(url);
 
     window.ipfs.add([buffer], function(error, result) {
          if(!error) {
-             console.log('Badge successfully stored in IPFS.\nIPFS-hash: ' + result[0].hash);
+             console.log('IPFS-hash: ' + result[0].hash);
          } else {
              console.error(error);
          }
@@ -91,11 +88,9 @@ function storeBadge(location) {
 function retrieveBadge(location) {
     window.ipfs = window.IpfsApi('localhost', '5001', {protocol: 'http'});
 
-    const Buffer = window.IpfsApi().Buffer;
-
     window.ipfs.get(location, function(error, result) {
          if(!error) {
-             console.log('Badge successfully retrieved from IPFS.\nResult: ' + result[0].content);
+             console.log('Result: ' + result[0].content);
          } else {
              console.error(error);
          }

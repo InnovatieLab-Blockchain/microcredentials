@@ -57,12 +57,13 @@
                 <div class="content">
                   <h3>Scan de code met uPort om je diploma's te zien</h3>
                   <p></p>
-                  <p><div class="input">
-                  <a class="btn btn--primary" href="#" onclick="uportConnect()">Log in</a>
-                </div></p>
-                    <div><a class="btn btn--send" onclick="uportAttest()">Haal op</a></div>
-
-                  <!--<p><a href="student.html" class="btn btn--primary">Doe alsof je bent ingelogd en ga verder naar je diploma's</a></p>-->
+                  <p>
+                  <div class="input" id="inloggen">
+                    <a class="btn btn--primary" href="#" onclick="uportConnect()">Inloggen</a>
+                  </div><p>
+                    <div id="ophalen" style="display: none">
+                      <a class="btn btn--send" onclick="uportAttest()">Nieuw diploma ophalen</a>
+                    </div>
                 </div>
               </div>
             </div>
