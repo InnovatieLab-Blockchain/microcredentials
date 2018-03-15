@@ -16,6 +16,6 @@
     "lite-server": "^2.3.0"
   },
   "dependencies": {
-    "uport-connect": "^0.7.1"
+    "uport-connect": "^0.7.0"
   }
 }

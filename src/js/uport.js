@@ -1,6 +1,10 @@
-const Credentials = window.uportconnect.Credentials;
-const Connect = window.uportconnect.Connect;
-const SimpleSigner = window.uportconnect.SimpleSigner;
+const Credentials = uportconnect.Credentials;
+const Connect = uportconnect.Connect;
+const SimpleSigner = uportconnect.SimpleSigner;
+
+// import Connect from 'uport-connect'
+// import SimpleSigner from 'uport-connect'
+// import Credentials from 'uport-connect'
 
 const connect = new Connect('DUO', {
     clientId: '2oynp4geSgBwqkQebaYtexB32rCNbPmLu5K',
@@ -47,6 +51,7 @@ function show_credentials() {
 const uportConnect = function () {
     connect.requestCredentials({
         requested: ['name', 'phone', 'country', 'avatar'],
+        // callbackUrl:'student.html',
         notifications: true // We want this if we want to recieve credentials
     })
         .then((credentials) => {
@@ -57,18 +62,19 @@ const uportConnect = function () {
             context.uportName = credentials.name;
             context.uportCountry = credentials.country;
             context.uportPhone = credentials.phone;
-            window.location.href = "student.html";
+            // window.location.href = "student.html";
         })
 };
 
-const  uportAttest = function () {
+const uportAttest = function () {
     connectRug.attestCredentials({
         sub: context.uportId,
-        claim: {OpenBadge1: {naam: 'Atheneum', description: 'Atheneum Diploma 2018' }},
-        callbackUrl: 'student2.html',
+        claim: {OpenBadge1: {naam: 'OpenBadge1', description: 'Atheneum Diploma 2018' }},
+        // callbackUrl: 'student2.html',
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
-        uriHandler: (log) => { console.log(log)}
-        }).then((attestation) => {
+        // uriHandler: (log) => { console.log(log)}
+        })
+        .then((attestation) => {
         console.log("Attestation = " + attestation);
         window.location.href = "student2.html";
     })
@@ -88,6 +94,5 @@ const uportVerify = function () {
     }).catch (err => {
         console.log("Niet gedeeld: ", err)
     })
-
 };
 
