@@ -1,2 +1,6 @@
-# microcredentials
-Registry for certificates
+<p align="center">
+    <img src="innovatielab.png"/>
+</p>
+
+#Microcredentials
+
