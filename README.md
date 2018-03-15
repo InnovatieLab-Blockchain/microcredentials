@@ -1,56 +1,57 @@
-# Project Title
+<p align="center">
+    <img src="innovatielab.png"/>    
+</p>
 
-One Paragraph of project description goes here
+# Innovatielab Blockchain - Microcredentials
 
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+## This manual describes the setup for the microcredentials project.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+* Installation of Node.js.
+* Installation of npm.
+* Installation of Ganache.
+* Installation of the Truffle framework.
+* Installation of IPFS.</li>
+* Installation of lite-server (HTTP server).
+* Installation of Metamask (browser plugin).
 
-```
-Give examples
-```
 
-### Installing
+### Installation of Node.js
 
-A step by step series of examples that tell you have to get a development env running
+nodejs
 
-Say what the step will be
+### Installation of npm
+
+npm
+
+### Installation of Ganache
+
+Ganache is a personal Ethereum blockchain application, which can be used for development and testing. The application can be downloaded from the <a href="http://truffleframework.com/ganache/" target="_blank">truffle framework website</a><br/><p></p>
+Ganache for Linux can be found [here](https://github.com/trufflesuite/ganache/releases/download/v1.0.2/ganache-1.0.2-x86_64.AppImage).<br/> 
+For other operating systems please visit [this link](https://github.com/trufflesuite/ganache/releases).
+<p></p>
+
+### Installation of the Truffle framework
+
+truffle
+
+### Installation of IPFS
+
+IPFS
+
+### Installation of lite-server (HTTP server)
+
+lite-server
+
+### Installation of Metamask (browser plugin)
+
+metamask
 
 ```
 Give the example
 ```
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
