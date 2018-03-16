@@ -7,16 +7,16 @@ if (typeof web3 !== 'undefined') {
 }
 web3 = new Web3(web3Provider);
 
-function assertBadge() {
-    var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
-    var contract = web3.eth.contract(abi).at(contractAddress);
-    var studentAddresses = document.getElementById("students");
+var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
+var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
+var contract = web3.eth.contract(abi).at(contractAddress);
+var issuer = "0x9fbda871d559710256a2502a2517b794b482db40";
+var badgeClass = "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4";
+var badgeHash = 42;
 
-    var issuer = "0x9fbda871d559710256a2502a2517b794b482db40";
+function assertBadge() {
+    var studentAddresses = document.getElementById("students");
     var recipient = studentAddresses.options[studentAddresses.selectedIndex].value;
-    var badgeClass = "0x2c2b9c9a4a25e24b174f26114e8926a9f2128fe4";
-    var badgeHash = 42;
     var url = "atheneum.png";
 
     contract.assertBadge.sendTransaction(issuer, recipient, badgeClass, badgeHash, {
@@ -38,14 +38,9 @@ function assertBadge() {
 }
 
 function validateAssertion() {
-    var abi = JSON.parse("[{\"constant\":false,\"inputs\":[{\"name\":\"issuer\",\"type\":\"address\"},{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"badgeClass\",\"type\":\"address\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"assertBadge\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"},{\"name\":\"hash\",\"type\":\"uint256\"}],\"name\":\"validateAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"bool\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"name\":\"recipient\",\"type\":\"address\"},{\"name\":\"number\",\"type\":\"uint256\"}],\"name\":\"getAssertion\",\"outputs\":[{\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}]");
-    var contractAddress = "0x75c35c980c0d37ef46df04d31a140b65503c0eed";
-    var contract = web3.eth.contract(abi).at(contractAddress);
     var studentAddresses = document.getElementById("students");
-
     var recipient = studentAddresses.options[studentAddresses.selectedIndex].value;
     var number = 1;
-    var badgeHash = 42;
 
     contract.validateAssertion.call(recipient, number, badgeHash, {
         from: web3.eth.accounts[0],
@@ -87,7 +82,7 @@ function storeBadge(url) {
 
 function retrieveBadge(location) {
     window.ipfs = window.IpfsApi('localhost', '5001', {protocol: 'http'});
-
+    
     window.ipfs.get(location, function(error, result) {
          if(!error) {
              console.log('Result: ' + result[0].content);
@@ -95,7 +90,6 @@ function retrieveBadge(location) {
              console.error(error);
          }
     });
-
 }
 
 
