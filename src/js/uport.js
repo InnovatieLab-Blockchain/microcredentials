@@ -55,38 +55,27 @@ const uportConnect = function () {
             user_data.uportName = credentials.name;
             user_data.uportCountry = credentials.country;
             user_data.uportPhone = credentials.phone;
-            // window.location.href = "student.html";
+            var userName = user_data.uportName;
+            document.getElementById("login").style.display = "none";
+            document.getElementById("header").style.display = "none";
+            document.getElementById("after_loginName").style.display = "inline";
+            document.getElementById("userName").innerHTML = userName;
+            document.getElementById("after_login").style.display = "inline";
+            // window.location.href = "studen t.html";
         })
 };
 
 // attest/issue badge
 const uportAttest = function () {
-    issuer_RUG.attestCredentials({
+    duo_connector.attestCredentials({
         sub: user_data.uportId,
-        claim: {Bachelor_Of_Education: {naam: 'Bachelor_Of_Education', description: 'Bachelor_Of_Education 2018' }},
+        claim: {Test: {naam: 'Uitslag Quiz', description: 'Uitslag Quiz' }},
         // callbackUrl: 'student2.html',
         exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
         // uriHandler: (log) => { console.log(log)}
         })
         .then((attestation) => {
         console.log("Attestation = " + attestation);
-        window.location.href = "student2.html";
+        window.location.href = "index.html";
     })
 };
-
-const uportVerify = function () {
-    verifier_RABO.requestCredentials({
-        verified: ['Bachelor_Of_Education'],
-        notifications: true,
-        exp: new Date().getTime() + 60000
-    }).then((profile) => {
-        console.log(profile);
-        credentialsRabo.lookup(profile.verified[0].iss).then(profile => {
-            console.log("Issuer ", profile);
-            // this.setState({issuer: profile});
-        })
-    }).catch (err => {
-        console.log("Niet gedeeld: ", err)
-    })
-};
-

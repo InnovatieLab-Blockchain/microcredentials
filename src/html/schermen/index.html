@@ -2,7 +2,7 @@
 <html lang="nl-NL">
 <head>
   <meta charset="utf-8">
-  <title>Jan de Vries - Blockchaingers</title>
+  <title>ICT-Markt blockchain quiz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <link rel="icon" href="../uno/dist/components/favicon/ro-favicon-donkergeel-0xffb612.png">
@@ -11,7 +11,12 @@
   <script type="text/javascript" src="../../../node_modules/web3/dist/web3.js"></script>
   <script type="text/javascript" src="../../../node_modules/uport-connect/dist/uport-connect.js"></script>
   <script src="https://unpkg.com/uport-connect/dist/uport-connect.min.js"></script>
+  <script src="js/main.js"> </script>
+
+  <link href ="css/style.css" rel ="stylesheet">
+  <script type="text/javascript">
   <script>
+
   System.config({
     "defaultJSExtensions": true
   });
@@ -39,34 +44,135 @@
 
     <main class="skiplink-target main" id="content" tabindex="-1">
       <div class="container">
-        <header class="row">
+        <header class="row" id="header">
           <div class="col-xl-6 col-xl-offset-3">
             <div class="content content--header">
-              <section class="content-header">
-                <h1>Jouw diploma's</h1>
-                <p class="subheading">Jij bepaalt met wie je ze deelt.</p>
+              <section class="content-header" >
+                <h1>De grote Blockchainquiz</h1>
+                <p>Wat weet jij van blockchain, smart contracts, private keys en public keys? Beantwoord de vragen en registreer jouw badge op onze eigen blockchain!</p>
               </section>
             </div>
           </div>
         </header>
 
-        <article>
+        <article id="login">
           <div class="row">
             <div class="col-xl-6 col-xl-offset-3">
               <div class="content-background">
                 <div class="content">
-                  <h3>Scan de code met uPort om je diploma's te zien</h3>
+                  <h3>Scan de code met uPort om te beginnen</h3>
                   <p></p>
                   <p><div class="input">
                   <a class="btn btn--primary" href="#" onclick="uportConnect()">Log in</a>
                 </div></p>
-                    <div><a class="btn btn--send" onclick="uportAttest()">Haal op</a></div>
+
 
                   <!--<p><a href="student.html" class="btn btn--primary">Doe alsof je bent ingelogd en ga verder naar je diploma's</a></p>-->
                 </div>
               </div>
             </div>
           </div>
+        </article>
+
+        <article>
+          <div class="row">
+            <div class="col-xl-6 col-xl-offset-3">
+
+          <div id="after_loginName">
+          <h1><p id = "userName"></p></h1></div>
+
+
+          <article>
+          <div id="after_login">
+          <form id = "quiz" name="quiz">
+                  <div class="content-background">
+                  <div class="content">
+                    <h2>Succes met de quiz!</h2>
+                    <fieldset class="input">
+              <legend>Vraag 1: Wat is een blockchain?</legend>
+              <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag1" value="a">Een netwerk van computers dat complexe berekeningen uitvoert.<br>
+              <input type="radio" id="mc" name="vraag1" value="b">Een gedistribueerde database waarbij iedere server de inhoud valideert.<br>
+              <input type="radio" id="mc" name="vraag1" value="c">Een netwerk van computers dat parallel berekeningen uitvoert.<br>
+              <input type="radio" id="mc" name="vraag1" value="d">Een wifinetwerk dat meerdere huizenblokken met elkaar verbindt.<br>
+                </div>
+
+              <legend>Vraag 2: Wie/wat is de bedenker van de blockchain-technologie?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag2" value="a">Google<br>
+              <input type="radio" id="mc" name="vraag2" value="b">Edsger Dijkstra<br>
+              <input type="radio" id="mc" name="vraag2" value="c">Satoshi Nakamoto<br>
+              <input type="radio" id="mc" name="vraag2" value="d">Steve Jobs<br>
+            </div>
+
+              <legend>Vraag 3: Wat is een smart contract?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag3" value="a">Een contract dat rekening houdt met verschillende scenario’s.	<br>
+              <input type="radio" id="mc" name="vraag3" value="b">Een programma dat zelf met oplossingen komt in onverwachte situaties.	<br>
+              <input type="radio" id="mc" name="vraag3" value="c">Een intelligente samenwerking tussen verschillende blockchains.	<br>
+              <input type="radio" id="mc" name="vraag3" value="d">Een programma dat op de blockchain geplaatst wordt en dat in vooraf gedefinieerde situaties actief wordt.	<br>
+            </div>
+              <legend>Vraag 4:	Wat is de blockchainhoofdstad van Nederland?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag4" value="a">Delft<br>
+              <input type="radio" id="mc" name="vraag4" value="b">Amsterdam<br>
+              <input type="radio" id="mc" name="vraag4" value="c">Groningen<br>
+              <input type="radio" id="mc" name="vraag4" value="d">Enschede	<br>
+            </div>
+            <legend>Vraag 	5	:	Wat is een private key?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag5" value="a">Vergelijkbaar met een inlognaam en wachtwoord in één.	<br>
+              <input type="radio" id="mc" name="vraag5" value="b">Een sleutel waarmee privégegevens op de blockchain ontsleuteld kunnen worden.	<br>
+              <input type="radio" id="mc" name="vraag5" value="c">Een bestand dat je van de blockchain kunt downloaden voor eigen gebruik.	<br>
+              <input type="radio" id="mc" name="vraag5" value="d">Een besloten blockchain binnen een bedrijf.	<br>
+            </div>
+            <legend>Vraag 	6	:	Wat zijn microcredentials?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag6" value="a">Deelberekeningen voor de validatie van een block.	<br>
+              <input type="radio" id="mc" name="vraag6" value="b">Aanbevelingen van collega’s.	<br>
+              <input type="radio" id="mc" name="vraag6" value="c">Aanbevelingen van docenten.	<br>
+              <input type="radio" id="mc" name="vraag6" value="d">Certificaten die iemand ontvangt voor een enkel vak of cursus.	<br>
+            </div>
+            <legend>Vraag 	7	:	Hoe wis je gegevens van de blockchain?</legend>
+            <div class="input__group input__group--radio">
+              <input type="radio" id="mc" name="vraag7" value="a">Iets wat eenmaal op een blockchain staat kan er nooit meer af.	<br>
+              <input type="radio" id="mc" name="vraag7" value="b">Je kunt geen informatie wissen maar wel overschrijven.	<br>
+              <input type="radio" id="mc" name="vraag7" value="c">Je vervangt een volledig blok door een dummy-blok.	<br>
+              <input type="radio" id="mc" name="vraag7" value="d">Je behoudt het gegeven maar versleutelt het.	<br>
+            </div>
+            <div class="input">
+          <p align="center"><input id = "button" class="btn btn--primary" type="button" value = "ik ben klaar met de test" onclick="check(); window.scrollTo(0, 500);"></p>
+        </div>
+      </div>
+    </div>
+          </form>
+
+          <div id="after_submit" class="content" >
+            <p id = "userName"></p>
+            <p id = "number_correct"></p>
+            <p id = "bericht"></p>
+            <img id = "picture"></p>
+            <font size="3">Je hebt de badge verdient:</font><p id = "status"></p>
+            <div><a class="btn btn--primary" onclick="uportAttest()">Haal op</a></div></aside>
+            <!-- <p align="center"><input id = "button" class="btn btn--primary" type="button" value = "Overnieuw beginnen" onclick="javascript:location.href='index.html'"</p> -->
+          </div>
+
+
+          <div id="after_submit" class="content" >
+            <aside>
+            <p id = "userName"></p>
+            <p id = "number_correct"></p>
+            <p id = "bericht"></p>
+            <img id = "picture"></p>
+            <font size="3">Je hebt de badge verdient:</font><p id = "status"></p>
+            <div><a class="btn btn--primary" onclick="uportAttest()">Haal op</a></div></aside>
+            <!-- <p align="center"><input id = "button" class="btn btn--primary" type="button" value = "Overnieuw beginnen" onclick="javascript:location.href='index.html'"</p> -->
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
         </article>
 
       </div>
