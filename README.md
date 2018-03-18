@@ -87,3 +87,55 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 * Inspiration
 * etc
 
+
+
+## Temporary flow for MT
+Zorg ervoor dat gebruiker (speelt student "RECIPIENT") de uport app op telefoon heeft EN een identity erop heeft aangemaakt.
+
+Open en start ganache
+
+###In terminal in project
+truffle.cmd compile --all --reset
+
+truffle.cmd migrate --all --reset
+
+truffle.cmd networks
+
+Check dat 'OpenBadges' contractaddress == 0x75c35c980c0d37ef46df04d31a140b65503c0eed
+
+Open index2 in browser (firefox)
+
+Verwijder metamask en installeer opnieuw
+
+Open metamask en open account met mnemomic : candy maple cake sugar pudding cream honey rich smooth crumble sweet treat
+
+Verander metamask netwerk naar http://localhost:7545
+
+###VO Instelling (ISSUER)
+Ga op 'index2.html' naar Voortgezet onderwijs (praedinius)
+Toekennen Atheneum Diploma
+Verder
+Selecteer student(Jan)
+Klik toekennen
+In metamask klik submit
+
+Ga terug naar 'index2.html'
+
+###Student (RECIPIENT)
+Klik op 'ga naar' als student Jan
+Log in bij het Praedinius Gymnasium met de uport app door te klikken op 'inloggen' --> continue with uport
+Klik op 'continue' in de uport app (zie dat Praedinius wil dat je bij hen inlogt)
+Klik op 'nieuw diploma ophalen' en wacht tot de badge op je uport app verschijnt
+Klik 'accept'
+Verifieer dat je deze hebt ontvangen in je 'verifications' tab in de uport app
+Deel je diploma met de Rijksuniversiteit Groningen (RUG)
+Log in bij de RUG (zoals hierboven bij Praedinius gedaan werd) met de uport app
+Klik 'continue'
+
+Ga terug naar 'index2.html'
+
+###Rijksuniversiteit groningen (RUG) (VERFIFIER)
+Klik op 'Ga naar' onder RUG op index2.html
+Selecteer Jan als student
+Vraag om diploma op te halen (groene knop)
+Valideer diploma 

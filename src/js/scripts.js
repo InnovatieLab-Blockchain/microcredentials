@@ -25,7 +25,7 @@ function assertBadge() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                storeBadge(url);
+                // storeBadge(url); //Tijdelijk uitgezet ivm MT
 
                 document.getElementById("hashresult").textContent = "Het diploma is succesvol toegekend aan de student en opgeslagen op de blockchain.";
                 document.getElementById("hashresult").style = "display:block; color:#008000;";
@@ -48,7 +48,7 @@ function validateAssertion() {
         function(error, result) {
             if(!error) {
                 console.log(result);
-                retrieveBadge("QmYmHV9cGVRkh78TBKgvCBkDdP9B5cdBybDs7evbfFHCvN");
+                // retrieveBadge("QmYmHV9cGVRkh78TBKgvCBkDdP9B5cdBybDs7evbfFHCvN"); //Tijdelijk uitgezet ivm MT
 
                 if(result) {
                     document.getElementById("validatebadge").textContent = "Diploma is valide.";

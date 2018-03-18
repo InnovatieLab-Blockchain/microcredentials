@@ -123,985 +123,1761 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60405160808061046483398101604052808051906020019091908051906020019091908051906020019091908051906020019091905050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555042600381905550806005819055505050505061033b806101296000396000f300606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461008857806352556421146100dd5780635743e1251461013257806366d003ac1461015b57806377dc74b2146101b0578063b90992b4146101d9578063d82109361461022e575b600080fd5b341561009357600080fd5b61009b61025f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100e857600080fd5b6100f0610284565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013d57600080fd5b6101456102ad565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e6102b7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c36102dd565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023957600080fd5b610241610309565b60405180826000191660001916815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600554905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600454815600a165627a7a72305820e34f8229bb0e75347037210b081105b644c7c23078a1704beb681554c2f01a110029",
-  "deployedBytecode": "0x606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461008857806352556421146100dd5780635743e1251461013257806366d003ac1461015b57806377dc74b2146101b0578063b90992b4146101d9578063d82109361461022e575b600080fd5b341561009357600080fd5b61009b61025f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100e857600080fd5b6100f0610284565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013d57600080fd5b6101456102ad565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e6102b7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c36102dd565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023957600080fd5b610241610309565b60405180826000191660001916815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600554905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600454815600a165627a7a72305820e34f8229bb0e75347037210b081105b644c7c23078a1704beb681554c2f01a110029",
-  "sourceMap": "103:691:1:-;;;304:311;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;443:13;427:6;;:30;;;;;;;;;;;;;;;;;;489:16;467:9;;:39;;;;;;;;;;;;;;;;;;540:17;516:10;;:42;;;;;;;;;;;;;;;;;;579:3;568:8;:14;;;;604:4;592:9;:16;;;;304:311;;;;103:691;;;;;;",
-  "deployedSourceMap": "103:691:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;621:80;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;707:84;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;154:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;220:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;186:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;246:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:20;;;;;;;;;;;;;:::o;621:80::-;663:6;688;;;;;;;;;;;681:13;;621:80;:::o;707:84::-;752:4;775:9;;768:16;;707:84;:::o;154:26::-;;;;;;;;;;;;;:::o;220:20::-;;;;:::o;186:28::-;;;;;;;;;;;;;:::o;246:31::-;;;;:::o",
-  "source": "pragma solidity ^0.4.18;\n\nimport \"./BadgeClass.sol\";\nimport \"./Issuer.sol\";\nimport \"./Recipient.sol\";\n\ncontract Assertion {\n    Issuer public issuer;\n    Recipient public recipient;\n    BadgeClass public badgeClass;\n    uint public issuedOn;\n    bytes32 public verificationType;\n    uint badgeHash;\n\n    function Assertion(address issuerAddress, address recipientAddress, address badgeClassAddress, uint hash) public {\n        issuer = Issuer(issuerAddress);\n        recipient = Recipient(recipientAddress);\n        badgeClass = BadgeClass(badgeClassAddress);\n        issuedOn = now;\n        badgeHash = hash;\n    }\n\n    function getIssuer() public view returns (Issuer) {\n        return issuer;\n    }\n\n    function getBadgeHash() public view returns (uint) {\n        return badgeHash;\n    }\n\n}",
-  "sourcePath": "/home/dennis/blockchain/microcredentials/contracts/Assertion.sol",
+  "bytecode": "0x6060604052341561000f57600080fd5b60405160808061046483398101604052808051906020019091908051906020019091908051906020019091908051906020019091905050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555042600381905550806005819055505050505061033b806101296000396000f300606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461008857806352556421146100dd5780635743e1251461013257806366d003ac1461015b57806377dc74b2146101b0578063b90992b4146101d9578063d82109361461022e575b600080fd5b341561009357600080fd5b61009b61025f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100e857600080fd5b6100f0610284565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013d57600080fd5b6101456102ad565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e6102b7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c36102dd565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023957600080fd5b610241610309565b60405180826000191660001916815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600554905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600454815600a165627a7a723058201d6f91e7cdb49ee39b5e16efdeaa7dee7dda8c2cc673ab401eb3a3c5aa7b486f0029",
+  "deployedBytecode": "0x606060405260043610610083576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d1438481461008857806352556421146100dd5780635743e1251461013257806366d003ac1461015b57806377dc74b2146101b0578063b90992b4146101d9578063d82109361461022e575b600080fd5b341561009357600080fd5b61009b61025f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100e857600080fd5b6100f0610284565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561013d57600080fd5b6101456102ad565b6040518082815260200191505060405180910390f35b341561016657600080fd5b61016e6102b7565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156101bb57600080fd5b6101c36102dd565b6040518082815260200191505060405180910390f35b34156101e457600080fd5b6101ec6102e3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561023957600080fd5b610241610309565b60405180826000191660001916815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905090565b6000600554905090565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600454815600a165627a7a723058201d6f91e7cdb49ee39b5e16efdeaa7dee7dda8c2cc673ab401eb3a3c5aa7b486f0029",
+  "sourceMap": "109:715:1:-;;;318:317;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;458:13;442:6;;:30;;;;;;;;;;;;;;;;;;505:16;483:9;;:39;;;;;;;;;;;;;;;;;;557:17;533:10;;:42;;;;;;;;;;;;;;;;;;597:3;586:8;:14;;;;623:4;611:9;:16;;;;318:317;;;;109:715;;;;;;",
+  "deployedSourceMap": "109:715:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;135:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;643:82;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;733:86;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;162:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;230:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;195:28;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;257:31;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;135:20;;;;;;;;;;;;;:::o;643:82::-;685:6;711;;;;;;;;;;;704:13;;643:82;:::o;733:86::-;778:4;802:9;;795:16;;733:86;:::o;162:26::-;;;;;;;;;;;;;:::o;230:20::-;;;;:::o;195:28::-;;;;;;;;;;;;;:::o;257:31::-;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\r\n\r\nimport \"./BadgeClass.sol\";\r\nimport \"./Issuer.sol\";\r\nimport \"./Recipient.sol\";\r\n\r\ncontract Assertion {\r\n    Issuer public issuer;\r\n    Recipient public recipient;\r\n    BadgeClass public badgeClass;\r\n    uint public issuedOn;\r\n    bytes32 public verificationType;\r\n    uint badgeHash;\r\n\r\n    function Assertion(address issuerAddress, address recipientAddress, address badgeClassAddress, uint hash) public {\r\n        issuer = Issuer(issuerAddress);\r\n        recipient = Recipient(recipientAddress);\r\n        badgeClass = BadgeClass(badgeClassAddress);\r\n        issuedOn = now;\r\n        badgeHash = hash;\r\n    }\r\n\r\n    function getIssuer() public view returns (Issuer) {\r\n        return issuer;\r\n    }\r\n\r\n    function getBadgeHash() public view returns (uint) {\r\n        return badgeHash;\r\n    }\r\n\r\n}",
+  "sourcePath": "C:\\Projects\\innovatielab\\microcredentials\\microcredentials\\contracts\\Assertion.sol",
   "ast": {
-    "attributes": {
-      "absolutePath": "/home/dennis/blockchain/microcredentials/contracts/Assertion.sol",
-      "exportedSymbols": {
-        "Assertion": [
-          142
-        ]
-      }
+    "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Assertion.sol",
+    "exportedSymbols": {
+      "Assertion": [
+        142
+      ]
     },
-    "children": [
+    "id": 143,
+    "nodeType": "SourceUnit",
+    "nodes": [
       {
-        "attributes": {
-          "literals": [
-            "solidity",
-            "^",
-            "0.4",
-            ".18"
-          ]
-        },
         "id": 72,
-        "name": "PragmaDirective",
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
         "src": "0:24:1"
       },
       {
-        "attributes": {
-          "SourceUnit": 181,
-          "absolutePath": "/home/dennis/blockchain/microcredentials/contracts/BadgeClass.sol",
-          "file": "./BadgeClass.sol",
-          "scope": 143,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/BadgeClass.sol",
+        "file": "./BadgeClass.sol",
         "id": 73,
-        "name": "ImportDirective",
-        "src": "26:26:1"
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 181,
+        "src": "28:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "SourceUnit": 241,
-          "absolutePath": "/home/dennis/blockchain/microcredentials/contracts/Issuer.sol",
-          "file": "./Issuer.sol",
-          "scope": 143,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Issuer.sol",
+        "file": "./Issuer.sol",
         "id": 74,
-        "name": "ImportDirective",
-        "src": "53:22:1"
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 241,
+        "src": "56:22:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "SourceUnit": 493,
-          "absolutePath": "/home/dennis/blockchain/microcredentials/contracts/Recipient.sol",
-          "file": "./Recipient.sol",
-          "scope": 143,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Recipient.sol",
+        "file": "./Recipient.sol",
         "id": 75,
-        "name": "ImportDirective",
-        "src": "76:25:1"
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 493,
+        "src": "80:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
-          "contractKind": "contract",
-          "documentation": null,
-          "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            142
-          ],
-          "name": "Assertion",
-          "scope": 143
-        },
-        "children": [
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 142,
+        "linearizedBaseContracts": [
+          142
+        ],
+        "name": "Assertion",
+        "nodeType": "ContractDefinition",
+        "nodes": [
           {
-            "attributes": {
-              "constant": false,
-              "name": "issuer",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "contract Issuer",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "Issuer",
-                  "referencedDeclaration": 240,
-                  "type": "contract Issuer"
-                },
-                "id": 76,
-                "name": "UserDefinedTypeName",
-                "src": "128:6:1"
-              }
-            ],
+            "constant": false,
             "id": 77,
-            "name": "VariableDeclaration",
-            "src": "128:20:1"
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "135:20:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Issuer_$240",
+              "typeString": "contract Issuer"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 76,
+              "name": "Issuer",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 240,
+              "src": "135:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Issuer_$240",
+                "typeString": "contract Issuer"
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "recipient",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "contract Recipient",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "Recipient",
-                  "referencedDeclaration": 492,
-                  "type": "contract Recipient"
-                },
-                "id": 78,
-                "name": "UserDefinedTypeName",
-                "src": "154:9:1"
-              }
-            ],
+            "constant": false,
             "id": 79,
-            "name": "VariableDeclaration",
-            "src": "154:26:1"
+            "name": "recipient",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "162:26:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Recipient_$492",
+              "typeString": "contract Recipient"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 78,
+              "name": "Recipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 492,
+              "src": "162:9:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Recipient_$492",
+                "typeString": "contract Recipient"
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "badgeClass",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "contract BadgeClass",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "contractScope": null,
-                  "name": "BadgeClass",
-                  "referencedDeclaration": 180,
-                  "type": "contract BadgeClass"
-                },
-                "id": 80,
-                "name": "UserDefinedTypeName",
-                "src": "186:10:1"
-              }
-            ],
+            "constant": false,
             "id": 81,
-            "name": "VariableDeclaration",
-            "src": "186:28:1"
+            "name": "badgeClass",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "195:28:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_BadgeClass_$180",
+              "typeString": "contract BadgeClass"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 80,
+              "name": "BadgeClass",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 180,
+              "src": "195:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BadgeClass_$180",
+                "typeString": "contract BadgeClass"
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "issuedOn",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "uint256",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "name": "uint",
-                  "type": "uint256"
-                },
-                "id": 82,
-                "name": "ElementaryTypeName",
-                "src": "220:4:1"
-              }
-            ],
+            "constant": false,
             "id": 83,
-            "name": "VariableDeclaration",
-            "src": "220:20:1"
+            "name": "issuedOn",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "230:20:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 82,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "230:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "verificationType",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "bytes32",
-              "value": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "name": "bytes32",
-                  "type": "bytes32"
-                },
-                "id": 84,
-                "name": "ElementaryTypeName",
-                "src": "246:7:1"
-              }
-            ],
+            "constant": false,
             "id": 85,
-            "name": "VariableDeclaration",
-            "src": "246:31:1"
+            "name": "verificationType",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "257:31:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 84,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "257:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": false,
-              "name": "badgeHash",
-              "scope": 142,
-              "stateVariable": true,
-              "storageLocation": "default",
-              "type": "uint256",
-              "value": null,
-              "visibility": "internal"
-            },
-            "children": [
-              {
-                "attributes": {
-                  "name": "uint",
-                  "type": "uint256"
-                },
-                "id": 86,
-                "name": "ElementaryTypeName",
-                "src": "283:4:1"
-              }
-            ],
+            "constant": false,
             "id": 87,
-            "name": "VariableDeclaration",
-            "src": "283:14:1"
+            "name": "badgeHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "295:14:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 86,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "295:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
           },
           {
-            "attributes": {
-              "constant": false,
-              "implemented": true,
-              "isConstructor": true,
-              "modifiers": [
-                null
-              ],
-              "name": "Assertion",
-              "payable": false,
-              "scope": 142,
-              "stateMutability": "nonpayable",
-              "superFunction": null,
-              "visibility": "public"
-            },
-            "children": [
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "issuerAddress",
-                      "scope": 125,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 88,
-                        "name": "ElementaryTypeName",
-                        "src": "323:7:1"
+            "body": {
+              "id": 124,
+              "nodeType": "Block",
+              "src": "431:204:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 102,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 98,
+                      "name": "issuer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 77,
+                      "src": "442:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Issuer_$240",
+                        "typeString": "contract Issuer"
                       }
-                    ],
-                    "id": 89,
-                    "name": "VariableDeclaration",
-                    "src": "323:21:1"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "recipientAddress",
-                      "scope": 125,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
                     },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 90,
-                        "name": "ElementaryTypeName",
-                        "src": "346:7:1"
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 100,
+                          "name": "issuerAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 89,
+                          "src": "458:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 99,
+                        "name": "Issuer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 240,
+                        "src": "451:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Issuer_$240_$",
+                          "typeString": "type(contract Issuer)"
+                        }
+                      },
+                      "id": 101,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "451:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Issuer_$240",
+                        "typeString": "contract Issuer"
                       }
-                    ],
-                    "id": 91,
-                    "name": "VariableDeclaration",
-                    "src": "346:24:1"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "badgeClassAddress",
-                      "scope": 125,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
                     },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "type": "address"
-                        },
-                        "id": 92,
-                        "name": "ElementaryTypeName",
-                        "src": "372:7:1"
-                      }
-                    ],
-                    "id": 93,
-                    "name": "VariableDeclaration",
-                    "src": "372:25:1"
+                    "src": "442:30:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
                   },
-                  {
-                    "attributes": {
-                      "constant": false,
+                  "id": 103,
+                  "nodeType": "ExpressionStatement",
+                  "src": "442:30:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "recipient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 79,
+                      "src": "483:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Recipient_$492",
+                        "typeString": "contract Recipient"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 106,
+                          "name": "recipientAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 91,
+                          "src": "505:16:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 105,
+                        "name": "Recipient",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 492,
+                        "src": "495:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Recipient_$492_$",
+                          "typeString": "type(contract Recipient)"
+                        }
+                      },
+                      "id": 107,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "495:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Recipient_$492",
+                        "typeString": "contract Recipient"
+                      }
+                    },
+                    "src": "483:39:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Recipient_$492",
+                      "typeString": "contract Recipient"
+                    }
+                  },
+                  "id": 109,
+                  "nodeType": "ExpressionStatement",
+                  "src": "483:39:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 114,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 110,
+                      "name": "badgeClass",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 81,
+                      "src": "533:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BadgeClass_$180",
+                        "typeString": "contract BadgeClass"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 112,
+                          "name": "badgeClassAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 93,
+                          "src": "557:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 111,
+                        "name": "BadgeClass",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 180,
+                        "src": "546:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BadgeClass_$180_$",
+                          "typeString": "type(contract BadgeClass)"
+                        }
+                      },
+                      "id": 113,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "546:29:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BadgeClass_$180",
+                        "typeString": "contract BadgeClass"
+                      }
+                    },
+                    "src": "533:42:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BadgeClass_$180",
+                      "typeString": "contract BadgeClass"
+                    }
+                  },
+                  "id": 115,
+                  "nodeType": "ExpressionStatement",
+                  "src": "533:42:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 118,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 116,
+                      "name": "issuedOn",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 83,
+                      "src": "586:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 117,
+                      "name": "now",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 506,
+                      "src": "597:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "586:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 119,
+                  "nodeType": "ExpressionStatement",
+                  "src": "586:14:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 122,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 120,
+                      "name": "badgeHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 87,
+                      "src": "611:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 121,
                       "name": "hash",
-                      "scope": 125,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 95,
+                      "src": "623:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
                     },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 94,
-                        "name": "ElementaryTypeName",
-                        "src": "399:4:1"
-                      }
-                    ],
-                    "id": 95,
-                    "name": "VariableDeclaration",
-                    "src": "399:9:1"
-                  }
-                ],
-                "id": 96,
-                "name": "ParameterList",
-                "src": "322:87:1"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 97,
-                "name": "ParameterList",
-                "src": "417:0:1"
-              },
-              {
-                "children": [
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "contract Issuer"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 77,
-                              "type": "contract Issuer",
-                              "value": "issuer"
-                            },
-                            "id": 98,
-                            "name": "Identifier",
-                            "src": "427:6:1"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "isStructConstructorCall": false,
-                              "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
-                              "type": "contract Issuer",
-                              "type_conversion": true
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": [
-                                    {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    }
-                                  ],
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 240,
-                                  "type": "type(contract Issuer)",
-                                  "value": "Issuer"
-                                },
-                                "id": 99,
-                                "name": "Identifier",
-                                "src": "436:6:1"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 89,
-                                  "type": "address",
-                                  "value": "issuerAddress"
-                                },
-                                "id": 100,
-                                "name": "Identifier",
-                                "src": "443:13:1"
-                              }
-                            ],
-                            "id": 101,
-                            "name": "FunctionCall",
-                            "src": "436:21:1"
-                          }
-                        ],
-                        "id": 102,
-                        "name": "Assignment",
-                        "src": "427:30:1"
-                      }
-                    ],
-                    "id": 103,
-                    "name": "ExpressionStatement",
-                    "src": "427:30:1"
+                    "src": "611:16:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
                   },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "contract Recipient"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 79,
-                              "type": "contract Recipient",
-                              "value": "recipient"
-                            },
-                            "id": 104,
-                            "name": "Identifier",
-                            "src": "467:9:1"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "isStructConstructorCall": false,
-                              "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
-                              "type": "contract Recipient",
-                              "type_conversion": true
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": [
-                                    {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    }
-                                  ],
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 492,
-                                  "type": "type(contract Recipient)",
-                                  "value": "Recipient"
-                                },
-                                "id": 105,
-                                "name": "Identifier",
-                                "src": "479:9:1"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 91,
-                                  "type": "address",
-                                  "value": "recipientAddress"
-                                },
-                                "id": 106,
-                                "name": "Identifier",
-                                "src": "489:16:1"
-                              }
-                            ],
-                            "id": 107,
-                            "name": "FunctionCall",
-                            "src": "479:27:1"
-                          }
-                        ],
-                        "id": 108,
-                        "name": "Assignment",
-                        "src": "467:39:1"
-                      }
-                    ],
-                    "id": 109,
-                    "name": "ExpressionStatement",
-                    "src": "467:39:1"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "contract BadgeClass"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 81,
-                              "type": "contract BadgeClass",
-                              "value": "badgeClass"
-                            },
-                            "id": 110,
-                            "name": "Identifier",
-                            "src": "516:10:1"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "isStructConstructorCall": false,
-                              "lValueRequested": false,
-                              "names": [
-                                null
-                              ],
-                              "type": "contract BadgeClass",
-                              "type_conversion": true
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": [
-                                    {
-                                      "typeIdentifier": "t_address",
-                                      "typeString": "address"
-                                    }
-                                  ],
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 180,
-                                  "type": "type(contract BadgeClass)",
-                                  "value": "BadgeClass"
-                                },
-                                "id": 111,
-                                "name": "Identifier",
-                                "src": "529:10:1"
-                              },
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 93,
-                                  "type": "address",
-                                  "value": "badgeClassAddress"
-                                },
-                                "id": 112,
-                                "name": "Identifier",
-                                "src": "540:17:1"
-                              }
-                            ],
-                            "id": 113,
-                            "name": "FunctionCall",
-                            "src": "529:29:1"
-                          }
-                        ],
-                        "id": 114,
-                        "name": "Assignment",
-                        "src": "516:42:1"
-                      }
-                    ],
-                    "id": 115,
-                    "name": "ExpressionStatement",
-                    "src": "516:42:1"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 83,
-                              "type": "uint256",
-                              "value": "issuedOn"
-                            },
-                            "id": 116,
-                            "name": "Identifier",
-                            "src": "568:8:1"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 506,
-                              "type": "uint256",
-                              "value": "now"
-                            },
-                            "id": 117,
-                            "name": "Identifier",
-                            "src": "579:3:1"
-                          }
-                        ],
-                        "id": 118,
-                        "name": "Assignment",
-                        "src": "568:14:1"
-                      }
-                    ],
-                    "id": 119,
-                    "name": "ExpressionStatement",
-                    "src": "568:14:1"
-                  },
-                  {
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "isConstant": false,
-                          "isLValue": false,
-                          "isPure": false,
-                          "lValueRequested": false,
-                          "operator": "=",
-                          "type": "uint256"
-                        },
-                        "children": [
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 87,
-                              "type": "uint256",
-                              "value": "badgeHash"
-                            },
-                            "id": 120,
-                            "name": "Identifier",
-                            "src": "592:9:1"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "overloadedDeclarations": [
-                                null
-                              ],
-                              "referencedDeclaration": 95,
-                              "type": "uint256",
-                              "value": "hash"
-                            },
-                            "id": 121,
-                            "name": "Identifier",
-                            "src": "604:4:1"
-                          }
-                        ],
-                        "id": 122,
-                        "name": "Assignment",
-                        "src": "592:16:1"
-                      }
-                    ],
-                    "id": 123,
-                    "name": "ExpressionStatement",
-                    "src": "592:16:1"
-                  }
-                ],
-                "id": 124,
-                "name": "Block",
-                "src": "417:198:1"
-              }
-            ],
+                  "id": 123,
+                  "nodeType": "ExpressionStatement",
+                  "src": "611:16:1"
+                }
+              ]
+            },
             "id": 125,
-            "name": "FunctionDefinition",
-            "src": "304:311:1"
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "Assertion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 96,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 89,
+                  "name": "issuerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "337:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 88,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "337:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 91,
+                  "name": "recipientAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "360:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "360:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 93,
+                  "name": "badgeClassAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "386:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 92,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "386:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 95,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "413:9:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "336:87:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "431:0:1"
+            },
+            "scope": 142,
+            "src": "318:317:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": true,
-              "implemented": true,
-              "isConstructor": false,
-              "modifiers": [
-                null
-              ],
-              "name": "getIssuer",
-              "payable": false,
-              "scope": 142,
-              "stateMutability": "view",
-              "superFunction": null,
-              "visibility": "public"
+            "body": {
+              "id": 132,
+              "nodeType": "Block",
+              "src": "693:32:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 130,
+                    "name": "issuer",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 77,
+                    "src": "711:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
+                  },
+                  "functionReturnParameters": 129,
+                  "id": 131,
+                  "nodeType": "Return",
+                  "src": "704:13:1"
+                }
+              ]
             },
-            "children": [
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 126,
-                "name": "ParameterList",
-                "src": "639:2:1"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 133,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "contract Issuer",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "contractScope": null,
-                          "name": "Issuer",
-                          "referencedDeclaration": 240,
-                          "type": "contract Issuer"
-                        },
-                        "id": 127,
-                        "name": "UserDefinedTypeName",
-                        "src": "663:6:1"
-                      }
-                    ],
-                    "id": 128,
-                    "name": "VariableDeclaration",
-                    "src": "663:6:1"
-                  }
-                ],
-                "id": 129,
-                "name": "ParameterList",
-                "src": "662:8:1"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "functionReturnParameters": 129
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "overloadedDeclarations": [
-                            null
-                          ],
-                          "referencedDeclaration": 77,
-                          "type": "contract Issuer",
-                          "value": "issuer"
-                        },
-                        "id": 130,
-                        "name": "Identifier",
-                        "src": "688:6:1"
-                      }
-                    ],
-                    "id": 131,
-                    "name": "Return",
-                    "src": "681:13:1"
-                  }
-                ],
-                "id": 132,
-                "name": "Block",
-                "src": "671:30:1"
-              }
-            ],
             "id": 133,
-            "name": "FunctionDefinition",
-            "src": "621:80:1"
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getIssuer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 126,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "661:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 129,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 128,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "685:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_Issuer_$240",
+                    "typeString": "contract Issuer"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 127,
+                    "name": "Issuer",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 240,
+                    "src": "685:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "684:8:1"
+            },
+            "scope": 142,
+            "src": "643:82:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
           },
           {
-            "attributes": {
-              "constant": true,
-              "implemented": true,
-              "isConstructor": false,
-              "modifiers": [
-                null
-              ],
-              "name": "getBadgeHash",
-              "payable": false,
-              "scope": 142,
-              "stateMutability": "view",
-              "superFunction": null,
-              "visibility": "public"
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "784:35:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 138,
+                    "name": "badgeHash",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 87,
+                    "src": "802:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 137,
+                  "id": 139,
+                  "nodeType": "Return",
+                  "src": "795:16:1"
+                }
+              ]
             },
-            "children": [
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 134,
-                "name": "ParameterList",
-                "src": "728:2:1"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "name": "",
-                      "scope": 141,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint",
-                          "type": "uint256"
-                        },
-                        "id": 135,
-                        "name": "ElementaryTypeName",
-                        "src": "752:4:1"
-                      }
-                    ],
-                    "id": 136,
-                    "name": "VariableDeclaration",
-                    "src": "752:4:1"
-                  }
-                ],
-                "id": 137,
-                "name": "ParameterList",
-                "src": "751:6:1"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "functionReturnParameters": 137
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "argumentTypes": null,
-                          "overloadedDeclarations": [
-                            null
-                          ],
-                          "referencedDeclaration": 87,
-                          "type": "uint256",
-                          "value": "badgeHash"
-                        },
-                        "id": 138,
-                        "name": "Identifier",
-                        "src": "775:9:1"
-                      }
-                    ],
-                    "id": 139,
-                    "name": "Return",
-                    "src": "768:16:1"
-                  }
-                ],
-                "id": 140,
-                "name": "Block",
-                "src": "758:33:1"
-              }
-            ],
             "id": 141,
-            "name": "FunctionDefinition",
-            "src": "707:84:1"
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getBadgeHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "754:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "778:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "778:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "777:6:1"
+            },
+            "scope": 142,
+            "src": "733:86:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
           }
         ],
-        "id": 142,
-        "name": "ContractDefinition",
-        "src": "103:691:1"
+        "scope": 143,
+        "src": "109:715:1"
       }
     ],
+    "src": "0:824:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Assertion.sol",
+    "exportedSymbols": {
+      "Assertion": [
+        142
+      ]
+    },
     "id": 143,
-    "name": "SourceUnit",
-    "src": "0:794:1"
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 72,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".18"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:1"
+      },
+      {
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/BadgeClass.sol",
+        "file": "./BadgeClass.sol",
+        "id": 73,
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 181,
+        "src": "28:26:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Issuer.sol",
+        "file": "./Issuer.sol",
+        "id": 74,
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 241,
+        "src": "56:22:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/C/Projects/innovatielab/microcredentials/microcredentials/contracts/Recipient.sol",
+        "file": "./Recipient.sol",
+        "id": 75,
+        "nodeType": "ImportDirective",
+        "scope": 143,
+        "sourceUnit": 493,
+        "src": "80:25:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 142,
+        "linearizedBaseContracts": [
+          142
+        ],
+        "name": "Assertion",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 77,
+            "name": "issuer",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "135:20:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Issuer_$240",
+              "typeString": "contract Issuer"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 76,
+              "name": "Issuer",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 240,
+              "src": "135:6:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Issuer_$240",
+                "typeString": "contract Issuer"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 79,
+            "name": "recipient",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "162:26:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_Recipient_$492",
+              "typeString": "contract Recipient"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 78,
+              "name": "Recipient",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 492,
+              "src": "162:9:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Recipient_$492",
+                "typeString": "contract Recipient"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 81,
+            "name": "badgeClass",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "195:28:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_contract$_BadgeClass_$180",
+              "typeString": "contract BadgeClass"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 80,
+              "name": "BadgeClass",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 180,
+              "src": "195:10:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_BadgeClass_$180",
+                "typeString": "contract BadgeClass"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 83,
+            "name": "issuedOn",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "230:20:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 82,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "230:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 85,
+            "name": "verificationType",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "257:31:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_bytes32",
+              "typeString": "bytes32"
+            },
+            "typeName": {
+              "id": 84,
+              "name": "bytes32",
+              "nodeType": "ElementaryTypeName",
+              "src": "257:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_bytes32",
+                "typeString": "bytes32"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 87,
+            "name": "badgeHash",
+            "nodeType": "VariableDeclaration",
+            "scope": 142,
+            "src": "295:14:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 86,
+              "name": "uint",
+              "nodeType": "ElementaryTypeName",
+              "src": "295:4:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 124,
+              "nodeType": "Block",
+              "src": "431:204:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 102,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 98,
+                      "name": "issuer",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 77,
+                      "src": "442:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Issuer_$240",
+                        "typeString": "contract Issuer"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 100,
+                          "name": "issuerAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 89,
+                          "src": "458:13:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 99,
+                        "name": "Issuer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 240,
+                        "src": "451:6:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Issuer_$240_$",
+                          "typeString": "type(contract Issuer)"
+                        }
+                      },
+                      "id": 101,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "451:21:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Issuer_$240",
+                        "typeString": "contract Issuer"
+                      }
+                    },
+                    "src": "442:30:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
+                  },
+                  "id": 103,
+                  "nodeType": "ExpressionStatement",
+                  "src": "442:30:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 108,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 104,
+                      "name": "recipient",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 79,
+                      "src": "483:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Recipient_$492",
+                        "typeString": "contract Recipient"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 106,
+                          "name": "recipientAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 91,
+                          "src": "505:16:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 105,
+                        "name": "Recipient",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 492,
+                        "src": "495:9:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_Recipient_$492_$",
+                          "typeString": "type(contract Recipient)"
+                        }
+                      },
+                      "id": 107,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "495:27:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_Recipient_$492",
+                        "typeString": "contract Recipient"
+                      }
+                    },
+                    "src": "483:39:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Recipient_$492",
+                      "typeString": "contract Recipient"
+                    }
+                  },
+                  "id": 109,
+                  "nodeType": "ExpressionStatement",
+                  "src": "483:39:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 114,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 110,
+                      "name": "badgeClass",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 81,
+                      "src": "533:10:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BadgeClass_$180",
+                        "typeString": "contract BadgeClass"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "id": 112,
+                          "name": "badgeClassAddress",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 93,
+                          "src": "557:17:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        ],
+                        "id": 111,
+                        "name": "BadgeClass",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 180,
+                        "src": "546:10:1",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_contract$_BadgeClass_$180_$",
+                          "typeString": "type(contract BadgeClass)"
+                        }
+                      },
+                      "id": 113,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "typeConversion",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "546:29:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_contract$_BadgeClass_$180",
+                        "typeString": "contract BadgeClass"
+                      }
+                    },
+                    "src": "533:42:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_BadgeClass_$180",
+                      "typeString": "contract BadgeClass"
+                    }
+                  },
+                  "id": 115,
+                  "nodeType": "ExpressionStatement",
+                  "src": "533:42:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 118,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 116,
+                      "name": "issuedOn",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 83,
+                      "src": "586:8:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 117,
+                      "name": "now",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 506,
+                      "src": "597:3:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "586:14:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 119,
+                  "nodeType": "ExpressionStatement",
+                  "src": "586:14:1"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 122,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 120,
+                      "name": "badgeHash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 87,
+                      "src": "611:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 121,
+                      "name": "hash",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 95,
+                      "src": "623:4:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "611:16:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 123,
+                  "nodeType": "ExpressionStatement",
+                  "src": "611:16:1"
+                }
+              ]
+            },
+            "id": 125,
+            "implemented": true,
+            "isConstructor": true,
+            "isDeclaredConst": false,
+            "modifiers": [],
+            "name": "Assertion",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 96,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 89,
+                  "name": "issuerAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "337:21:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 88,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "337:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 91,
+                  "name": "recipientAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "360:24:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 90,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "360:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 93,
+                  "name": "badgeClassAddress",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "386:25:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 92,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "386:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 95,
+                  "name": "hash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 125,
+                  "src": "413:9:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 94,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "413:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "336:87:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 97,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "431:0:1"
+            },
+            "scope": 142,
+            "src": "318:317:1",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 132,
+              "nodeType": "Block",
+              "src": "693:32:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 130,
+                    "name": "issuer",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 77,
+                    "src": "711:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
+                  },
+                  "functionReturnParameters": 129,
+                  "id": 131,
+                  "nodeType": "Return",
+                  "src": "704:13:1"
+                }
+              ]
+            },
+            "id": 133,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getIssuer",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 126,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "661:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 129,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 128,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 133,
+                  "src": "685:6:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_Issuer_$240",
+                    "typeString": "contract Issuer"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 127,
+                    "name": "Issuer",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 240,
+                    "src": "685:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_Issuer_$240",
+                      "typeString": "contract Issuer"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "684:8:1"
+            },
+            "scope": 142,
+            "src": "643:82:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 140,
+              "nodeType": "Block",
+              "src": "784:35:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 138,
+                    "name": "badgeHash",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 87,
+                    "src": "802:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 137,
+                  "id": 139,
+                  "nodeType": "Return",
+                  "src": "795:16:1"
+                }
+              ]
+            },
+            "id": 141,
+            "implemented": true,
+            "isConstructor": false,
+            "isDeclaredConst": true,
+            "modifiers": [],
+            "name": "getBadgeHash",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 134,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "754:2:1"
+            },
+            "payable": false,
+            "returnParameters": {
+              "id": 137,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 136,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 141,
+                  "src": "778:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 135,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "778:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "777:6:1"
+            },
+            "scope": 142,
+            "src": "733:86:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 143,
+        "src": "109:715:1"
+      }
+    ],
+    "src": "0:824:1"
   },
   "compiler": {
     "name": "solc",
@@ -1112,9 +1888,9 @@
       "events": {},
       "links": {},
       "address": "0xf204a4ef082f5c04bb89f7d5e6568b796096735a",
-      "transactionHash": "0x833a27c6ded9842603db13f852987d95bb3dc2f70910c158b96da6b4bd6b02f7"
+      "transactionHash": "0x4f26751d2b8dcd994fe21738b9a7690aae6eb3c9234f58b07405ad0174c97537"
     }
   },
-  "schemaVersion": "1.0.1",
-  "updatedAt": "2018-03-16T09:12:35.218Z"
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-03-18T13:26:15.159Z"
 }

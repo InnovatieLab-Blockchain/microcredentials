@@ -48,6 +48,7 @@ const uportAttest = function () {
         }).then((attestation) => {
             console.log("Attestation = " + attestation);
             window.location.href = "student2.html";
+            alert("Atheneum diploma opgehaald")
     })
 };
 
@@ -60,6 +61,7 @@ const uportVerify = function () {
         console.log(profile);
         universiteitCredentials.lookup(profile.verified[0].iss).then(profile => {
             console.log("Issuer ", profile);
+            alert("Diploma gedeeld met RUG")
         })
     }).catch (err => {
         console.log("Niet gedeeld: ", err)
